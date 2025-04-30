@@ -68,3 +68,12 @@ treemap.c:88:33: error: 'current' undeclared (first use in this function)
                                  ^~~~~~~
 treemap.c:88:33: note: each undeclared identifier is reported only once for each function it appears in
 5d6e28c
+Wed, Apr 30, 2025 10:09:02 AM: 
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'searchTreeMap':
+treemap.c:88:33: error: 'current' undeclared (first use in this function)
+         if (is_equal(tree, key, current->pair->key))
+                                 ^~~~~~~
+treemap.c:88:33: note: each undeclared identifier is reported only once for each function it appears in
+d90c536
