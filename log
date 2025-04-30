@@ -19,3 +19,18 @@ treemap.c:46:1: error: control reaches end of non-void function [-Werror=return-
  ^
 cc1.exe: all warnings being treated as errors
 2ecb978
+Wed, Apr 30, 2025  9:54:30 AM: 
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'createTreeMap':
+treemap.c:44:5: error: statement with no effect [-Werror=unused-value]
+     newTreeMap
+     ^~~~~~~~~~
+treemap.c:45:5: error: expected ';' before 'return'
+     return NULL;
+     ^~~~~~
+treemap.c:46:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1.exe: all warnings being treated as errors
+ce4d3c5
