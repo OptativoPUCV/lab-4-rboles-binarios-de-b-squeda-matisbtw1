@@ -119,6 +119,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         return;
     }
 
+    //2, un hijo(Child)
     if (node->left == NULL || node->right == NULL)
     {
         TreeNode *child;
@@ -142,6 +143,12 @@ void removeNode(TreeMap *tree, TreeNode *node)
         free(node);
         return;
     }
+    //3, dos hijos
+    TreeNode *minNode = minimum(node->right); // buscar y obtener nodo min del subabol derecho
+    node->pair->key = minNode->pair->key;     // enlazar clave
+    node->pair->value = minNode->pair->value; // enlazar dato
+    removeNode(tree, minNode);                // eliminar el nodo min llamando la funcion asi misma
+    
 }
 
 void eraseTreeMap(TreeMap *tree, void *key)
