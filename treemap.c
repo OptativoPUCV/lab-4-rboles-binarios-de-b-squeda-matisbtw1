@@ -217,5 +217,15 @@ Pair *firstTreeMap(TreeMap *tree)
 
 Pair *nextTreeMap(TreeMap *tree)
 {
-    return NULL;
+    if (tree == NULL) return NULL;
+
+    TreeNode *current = tree->current; 
+
+    //caso 1, si current tiene hijo derecho buscar el minimo de este
+    if (current->right != NULL)
+    {
+        current = minimum(current->right); //buscar el menor pair en el subarbol derecho
+        tree->current = current; //actualizar current
+        return current->pair; //retornar el menor pair
+    }
 }
