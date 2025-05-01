@@ -228,4 +228,19 @@ Pair *nextTreeMap(TreeMap *tree)
         tree->current = current; //actualizar current
         return current->pair; //retornar el menor pair
     }
+    //caso 2, si current no tiene hijo derecho, buscar el primer ancestro que sea mayor que current
+    while (current->parent != NULL && current->parent->right == current) //recorrer hacia arriba 
+    {
+        current = current->parent; 
+        
+    }
+    tree->current = current->parent; //actualizar current
+    if (current->parent != NULL)
+    {
+        return current->parent->pair; //retornar el padre de current
+    }
+    else
+    {
+        return NULL; //no hay siguiente
+    }
 }
