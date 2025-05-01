@@ -189,12 +189,30 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
 
 Pair *upperBound(TreeMap *tree, void *key)
 {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return NULL;
 }
 
 Pair *firstTreeMap(TreeMap *tree)
 {
-    return NULL;
+    if (tree == NULL) return NULL; 
+    
+    TreeNode *minNode = minimum(tree->root);   //buscar el menor pair en el arbol
+    tree->current = minNode;           //actualizar current     
+    
+    return minNode->pair; 
+
+    
 }
 
 Pair *nextTreeMap(TreeMap *tree)
