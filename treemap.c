@@ -139,6 +139,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         child->parent = node->parent;
         free(node);
         return;
+    }
 }
 
 void eraseTreeMap(TreeMap *tree, void *key)

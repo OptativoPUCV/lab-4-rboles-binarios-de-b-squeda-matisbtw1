@@ -237,3 +237,20 @@ test.c:503:5: error: 'main' defined but not used [-Werror=unused-function]
      ^~~~
 cc1.exe: all warnings being treated as errors
 04521d0
+Thu, May  1, 2025 12:24:19 AM: 
+ treemap.c | 1 +
+ 1 file changed, 1 insertion(+)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'removeNode':
+treemap.c:127:17: error: statement with no effect [-Werror=unused-value]
+             node->left;}
+             ~~~~^~~~~~
+treemap.c:129:17: error: statement with no effect [-Werror=unused-value]
+             node->right;}
+             ~~~~^~~~~~~
+treemap.c:131:46: error: 'child' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+         if (node->parent == NULL) tree->root = child;
+                                   ~~~~~~~~~~~^~~~~~~
+cc1.exe: all warnings being treated as errors
+9174696
