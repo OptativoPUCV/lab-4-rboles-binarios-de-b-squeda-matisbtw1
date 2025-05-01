@@ -56,26 +56,29 @@ TreeMap *createTreeMap(int (*lower_than)(void *key1, void *key2))
 void insertTreeMap(TreeMap *tree, void *key, void *value)
 {
     if (tree == NULL) return;
-    if (searchTreeMap(tree, key) != NULL) return; //mapa no permite duplicados
+
+    if (searchTreeMap(tree, key) != NULL) return; // El mapa no permite duplicado
 
     TreeNode *newNode = createTreeNode(key, value);
 
-    while(tree->current != NULL) {
-        
-        if (tree->lower_than(tree->current->pair->key, key) == 1) {
-            tree->current = tree->current->right;
-        } else {
-            tree->current = tree->current->left;
+    TreeNode *parent = NULL;
+    TreeNode *current = tree->root;
+
+    while (current != NULL)
+    {
+        parent = current;
+        if (tree->lower_than(key, current->pair->key))
+        {
+            current = current->left;
+        }
+        else
+        {
+            current = current->right;
         }
     }
-    //enlazar el nuevo nodo con su padre
-    if (tree->lower_than(tree->current->pair->key, key) == 1) {
-        tree->current->right = newNode;
-    } else {
-        tree->current->left = newNode;
-    }
-    tree->current = newNode;
 
+
+    tree->current = newNode;
 }
 
 TreeNode *minimum(TreeNode *x)
