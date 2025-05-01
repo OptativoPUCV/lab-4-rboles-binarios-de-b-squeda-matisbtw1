@@ -254,3 +254,18 @@ treemap.c:131:46: error: 'child' may be used uninitialized in this function [-We
                                    ~~~~~~~~~~~^~~~~~~
 cc1.exe: all warnings being treated as errors
 9174696
+Thu, May  1, 2025 12:27:14 AM: 
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'removeNode':
+treemap.c:127:17: error: statement with no effect [-Werror=unused-value]
+             node->left;}
+             ~~~~^~~~~~
+treemap.c:129:17: error: statement with no effect [-Werror=unused-value]
+             node->right;}
+             ~~~~^~~~~~~
+treemap.c:131:46: error: 'child' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+         if (node->parent == NULL) tree->root = child;
+                                   ~~~~~~~~~~~^~~~~~~
+cc1.exe: all warnings being treated as errors
+ac40124
