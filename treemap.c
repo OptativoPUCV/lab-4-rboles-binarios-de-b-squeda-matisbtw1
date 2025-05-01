@@ -189,18 +189,40 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
 
 Pair *upperBound(TreeMap *tree, void *key)
 {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    return NULL;
+    if (tree == NULL ) return NULL; 
+
+    TreeNode *current = tree->root;
+    TreeNode *ub_node = NULL; 
+
+    while (current != NULL)
+    {
+        if (is_equal(tree, key, current->pair->key))
+        {
+            // si encontramos un nodo con clave igual a key retornar su Pair
+            tree->current = current; // actualizar current
+            return current->pair;
+        }
+        else if (tree->lower_than(key, current->pair->key))
+        {
+            // si key es menor que la clave actual actualizamos ub_node
+            ub_node = current;
+            current = current->left; //buscar subarbol iz
+        }
+        else
+        {
+            // buscar subarbol der
+            current = current->right;
+        }
+    }
+
+
+    if (ub_node != NULL)
+    {
+        tree->current = ub_node; // Actualizar current
+        return ub_node->pair;
+    }
+
+    return NULL; 
 }
 
 Pair *firstTreeMap(TreeMap *tree)
